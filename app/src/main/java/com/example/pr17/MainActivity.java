@@ -2,27 +2,26 @@ package com.example.pr17;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity impliments OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     DBHelper dbHelper;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         dbHelper = new DBHelper(this);
         ContentValues cv = new ContentValues();
-
 }
-
-
+    @Override
+    public void onClick(View view) {
+    }
     class DBHelper extends SQLiteOpenHelper {
 
-        public DBHelper(Context context) {
+        public DBHelper(MainActivity context) {
         // конструкторсуперкласса
         super(context, "myDB", null, 1);
         }
